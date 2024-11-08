@@ -9,9 +9,14 @@ angular.module('LunchCheck', [])
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.myMessage = "";
-
+  $scope.myInput = "";
   $scope.clickCheckIfTooMuch = function () {
-    $scope.myMessage = "Hello, World!";
+    const dishes = $scope.myInput.split(',');
+    if (dishes.length <= 3) {
+      $scope.myMessage = "Enjoy!";
+    } else {
+      $scope.myMessage = "Too much!";
+    }
   }
 }
 
